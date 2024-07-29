@@ -1,0 +1,36 @@
+table{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+th{
+    height: 50px;
+    background-color: #5555;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+td{
+    border: 1px solid #5555;
+    height: 40px;
+    cursor: pointer;
+}
+
+.selectedHeader{
+    background-color:  #5555;
+    height: 40px;
+    cursor: pointer;
+}
+
+.searchInput{
+    height: 40px;
+    padding: 0 12px;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #5555;
+    line-height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-collapse: collapse;
+}

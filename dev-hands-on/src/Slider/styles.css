@@ -1,0 +1,13 @@
+.carousel{
+    display:flex;
+    align-items: center;
+    padding: 1rem;
+}
+.slide{
+    text-align: center;
+    margin: auto;
+}
+img{
+    max-width: 500px;
+    height: 500px;
+}

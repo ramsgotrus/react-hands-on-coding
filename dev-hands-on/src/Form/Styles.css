@@ -1,0 +1,12 @@
+form{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    max-width: 500px;
+    padding-top: 5%;
+    gap:10px;
+    background-color: lightgray;
+}
+label{
+    text-align: left;
+}
