@@ -27,6 +27,8 @@ export const Table: FC<TableProps> = ({ initialData, headers, footer }) => {
       if (item?.userName?.toLowerCase().includes(searchQuery)) return item;
     });
   };
+
+  ///Sorting
   const sortedData = (key: string, newOrder: SortOrder): any[] => {
     return [...data].sort((a, b) => {
       if (a[key] < b[key]) return newOrder === "asc" ? -1 : 1;
@@ -42,6 +44,8 @@ export const Table: FC<TableProps> = ({ initialData, headers, footer }) => {
   const handleRowClick = (index: number) => {
     setSelectedID(index);
   };
+
+  /// search
   const handleSarch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.currentTarget.value.toLocaleLowerCase();
     setSearchQuery(query);
