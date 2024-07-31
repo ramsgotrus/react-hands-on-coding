@@ -1,4 +1,4 @@
-import React, { act, FC } from "react";
+import React, { act, FC, useMemo } from "react";
 import { User, Transaction } from "../types";
 import { Table } from "../Table/Table";
 /*
@@ -13,16 +13,13 @@ import { Table } from "../Table/Table";
     and the total amount of those transactions
     Users wihtout transactions should also be included in the report.
 
-    DataStracture: we can  use a hashmap to store the aggreated results. This will allow you to update 
-    and access the totals efficiently.
-
-    Loop through the transactions once to aggregate the total.
-    Use another loop to generate the final reportm incorporating users who had no transactions. 
+    DataStracture: we can  use a hashmap to store the aggreated results and retrieve user information in constant time
+    rather than iterating the array. This will allow you to update and access the totals efficiently.
 
     Time complexity
 
     Agggregate transactions : O(T) T is transactions
-    Generateing the report : O(U) U is users
+    Iterating over the users to build a lookup map : O(U) U is users
     Overall Complexity : O(T+U)
 */
 
@@ -32,49 +29,34 @@ interface SalesReportProps {
 }
 
 interface ReportData {
-  totalAmount: number;
-  totalTransactions: number;
+  userId: number;
+  userName: string;
+  totalAmount: 0;
+  totalTransaction: 0;
 }
 
 export const SalesReport: FC<SalesReportProps> = ({ users, transactions }) => {
-  const transactionsHashMap: { [key: number]: ReportData } = {};
-
-  ///Step 1: Aggregate transaction data using hasMap
-  transactions.forEach((transaction) => {
-    if (!transactionsHashMap[transaction.userId]) {
-      transactionsHashMap[transaction.userId] = {
-        totalAmount: 0,
-        totalTransactions: 0,
-      };
-    }
-    transactionsHashMap[transaction.userId].totalAmount += transaction.amount;
-    transactionsHashMap[transaction.userId].totalTransactions += 1;
-  });
-
-  // Step 2: Create the report and compute totals
-  let totalTransaction = 0;
-  let totalAmount = 0;
-  const report = users.map((user) => {
-    const userData = transactionsHashMap[user.id] || {
-      totalAmount: 0,
-      totalTransactions: 0,
-    };
-    totalAmount += userData.totalAmount;
-    totalTransaction += userData.totalTransactions;
-    return {
-      userId: user.id,
-      userName: user.first,
-      ...userData,
-    };
-  });
-
+  const usersReport: ReportData[] = useMemo(() => {
+    const userLookup: { [key: number]: { first: string } } = {};
+    const transactionHashMap: { [key: number]: ReportData } = {};
+    users.forEach((user) => {
+      userLookup[user.id] = { first: user.first };
+    });
+    transactions.forEach((transaction) => {
+      if (!transactionHashMap[transaction.userId]) {
+        transactionHashMap[transaction.userId] = {
+          userId: transaction.userId,
+          userName: userLookup[transaction.userId].first,
+          totalAmount: 0,
+          totalTransaction: 0,
+        };
+      }
+      transactionHashMap[transaction.userId].totalAmount += transaction.amount;
+      transactionHashMap[transaction.userId].totalTransaction += 1;
+    });
+    return Object.values(transactionHashMap);
+  }, [users, transactions]);
   return (
-    <>
-      <Table
-        initialData={report}
-        headers={Object.keys(report[0])}
-        footer={{ totalAmount, totalTransaction }}
-      />
-    </>
+    <Table initialData={usersReport} headers={Object.keys(usersReport[0])} />
   );
 };
