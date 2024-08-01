@@ -21,10 +21,15 @@ export const Table: FC<TableProps> = ({ initialData, headers, footer }) => {
   const [sort, setSort] = useState<SortOrder>("asc");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const searchData = (searchQuery: string): any[] => {
-    return [...initialData].filter((item) => {
-      if (item?.first?.toLowerCase().includes(searchQuery)) return item;
-      if (item?.name?.toLowerCase().includes(searchQuery)) return item;
-      if (item?.userName?.toLowerCase().includes(searchQuery)) return item;
+    return [...initialData].filter((rowItem) => {
+      const row = Object.values(rowItem);
+      return row.some((item) => {
+        if (typeof item === "string") {
+          return item.toLowerCase().includes(searchQuery.toLocaleLowerCase());
+        } else if (typeof item === "number") {
+          return item.toString() === searchQuery;
+        }
+      });
     });
   };
 
@@ -49,6 +54,8 @@ export const Table: FC<TableProps> = ({ initialData, headers, footer }) => {
   const handleSarch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.currentTarget.value.toLocaleLowerCase();
     setSearchQuery(query);
+    const list = searchData(query);
+    console.log(list);
     setData(searchData(query));
   };
 
