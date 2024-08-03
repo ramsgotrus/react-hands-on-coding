@@ -1,21 +1,29 @@
-// import React from "react";
-// import Rating from "./Rating";
+import React, { FC, useState } from "react";
 
-// const StarRating: React.FC = () => {
-//   const handleRatingChange = () => {};
-//   return <Rating totalRating={5} onRatingChange={() => handleRatingChange} />;
-// };
+interface StarRatingProps {
+  totalRating: number;
+}
 
-// export default StarRating;
-
-import React from "react";
-import Rating from "./Rating";
-const StarRating = () => {
+export const StarRating: FC<StarRatingProps> = ({ totalRating }) => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const handleSelectIndex = (index: number) => {
+    setCurrentIndex(index);
+  };
   return (
     <div>
-      <Rating totalRating={5} />
+      {[...Array(totalRating)].map((_, index) => (
+        <span
+          key={index}
+          onClick={() => handleSelectIndex(index)}
+          style={{
+            color: index > currentIndex ? "gray" : "#ffc107",
+            cursor: "pointer",
+            fontSize: "100px",
+          }}
+        >
+          *
+        </span>
+      ))}
     </div>
   );
 };
-
-export default StarRating;

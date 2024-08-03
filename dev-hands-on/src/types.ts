@@ -1,7 +1,7 @@
 export interface User {
   id: number;
   name: string;
-  first: string;
+  first?: string;
 }
 
 export interface Transaction {

@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import ImageCarousel from "./Slider/Slider";
 //import Form from './Form/Form'
-import StarRating from "./StarRating/StarRating";
+import { StarRating } from "./StarRating/StarRating";
 import { USERS, CANDIDATES } from "./data/data";
 import { TRANSACTIONS } from "./data/transactions";
 import { Table } from "./Table/Table";
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <SalesReport users={USERS} transactions={TRANSACTIONS} />
+      <StarRating totalRating={5} />
     </div>
   );
 }
