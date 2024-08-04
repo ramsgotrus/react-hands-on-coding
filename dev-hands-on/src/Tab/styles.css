@@ -1,0 +1,25 @@
+/* src/App.css */
+.tabs {
+    display: flex;
+    padding: 1rem;
+  }
+  
+  .tabs button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5555;
+    margin-right: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .tabs button.active {
+    background-color: #555;
+    color: white;
+  }
+  
+  .tab-content {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+  }
+  

@@ -10,7 +10,12 @@ export const StarRating: FC<StarRatingProps> = ({ totalRating }) => {
     setCurrentIndex(index);
   };
   return (
-    <div>
+    <div
+      style={{
+        border: "1px solid #5555",
+        width: "auto",
+      }}
+    >
       {[...Array(totalRating)].map((_, index) => (
         <span
           key={index}
