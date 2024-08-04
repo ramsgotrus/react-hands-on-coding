@@ -1,33 +1,31 @@
-// src/Tab.tsx
-import React, { useState, ReactNode } from "react";
+import React, { ReactNode, FC, useState } from "react";
 import "./styles.css";
 
-interface TabProps {
+interface TabsProps {
   tabs: string[];
   children: ReactNode[];
 }
 
-export const Tab: React.FC<TabProps> = ({ tabs, children }) => {
-  const [activeTab, setActiveTab] = useState<number>(0);
-
-  const handleTabClick = (index: number) => {
-    setActiveTab(index);
+export const Tabs: FC<TabsProps> = ({ tabs, children }) => {
+  const [activeChildren, setActiveChildren] = useState<number>(0);
+  const handleActiveTab = (index: number) => {
+    setActiveChildren(index);
   };
-
   return (
-    <div>
+    <>
       <div className="tabs">
         {tabs.map((tab, index) => (
           <button
+            onClick={() => handleActiveTab(index)}
             key={index}
-            className={index === activeTab ? "active" : ""}
-            onClick={() => handleTabClick(index)}
+            className={index === activeChildren ? "active" : ""}
           >
             {tab}
           </button>
         ))}
       </div>
-      <div className="tab-content">{children[activeTab]}</div>
-    </div>
+
+      <div className="tab-content">{children[activeChildren]}</div>
+    </>
   );
 };
