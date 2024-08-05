@@ -10,10 +10,11 @@ import { Tabs } from "./Tab/Tabs";
 import "./Tab/styles.css";
 import { Pagination } from "./Pagination/index";
 import { Todo } from "./Todo/index";
+import Game from "./TicTacToe/index";
 
 function App() {
   const headers = Object.keys(USERS[0]);
-  const tabs = ["Table 1", "Tab 2", "Tab 3", "Tab 4"];
+  const tabs = ["Table 1", "Tab 2", "Tab 3", "Tab 4", "Tab 5"];
 
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
         <SalesReport users={USERS} transactions={TRANSACTIONS} />
         <Pagination totalPages={10}>Tab 3</Pagination>
         <Todo items={TODOLIST} />
+        <Game />
       </Tabs>
     </div>
   );
