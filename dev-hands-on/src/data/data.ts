@@ -33,3 +33,17 @@ export const CANDIDATES = [
   { id: 19, role: "CFO", location: "Washington D.C.", yearsOfExperience: 9 },
   { id: 20, role: "CEO", location: "Miami", yearsOfExperience: 1 },
 ];
+
+export const TODOLIST = [
+  { id: 1, text: "Todo 1", completed: false },
+  { id: 2, text: "Todo 2", completed: false },
+  { id: 3, text: "Todo 3", completed: false },
+  { id: 4, text: "Todo 4", completed: false },
+  { id: 5, text: "Todo 5", completed: false },
+  { id: 6, text: "Todo 6", completed: false },
+  { id: 7, text: "Todo 7", completed: false },
+  { id: 8, text: "Todo 8", completed: false },
+  { id: 9, text: "Todo 9", completed: false },
+  { id: 10, text: "Todo 10", completed: false },
+  { id: 11, text: "Todo 11", completed: false },
+];

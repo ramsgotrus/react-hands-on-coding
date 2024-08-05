@@ -1,0 +1,15 @@
+.todo-list{
+    display: flex;
+    gap: 20px;
+    padding: 1rem;
+   align-content: center;
+}
+
+
+.todo-complete{
+    text-decoration: line-through;
+}
+
+.input-checkbox{
+    cursor: pointer;
+}

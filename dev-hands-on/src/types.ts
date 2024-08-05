@@ -8,3 +8,9 @@ export interface Transaction {
   userId: number;
   amount: number;
 }
+
+export interface TodoItem {
+  id: number;
+  text: string;
+  completed: boolean;
+}
