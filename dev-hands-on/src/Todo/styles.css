@@ -1,15 +1,19 @@
 .todo-list{
-    display: flex;
-    gap: 20px;
-    padding: 1rem;
-   align-content: center;
+    display: inline-block;
+    flex-direction: column;
 }
 
+.todo-list-item{
+    display: grid;
+    grid-template-columns: 30px 100px;
+    cursor: pointer;
 
+}
 .todo-complete{
     text-decoration: line-through;
 }
 
 .input-checkbox{
     cursor: pointer;
+    height: 20px;
 }

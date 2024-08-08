@@ -1,0 +1,28 @@
+.container{
+    position: relative;
+    display: inline-block;
+}
+input{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #5555;
+    margin-top: 20px;
+    border-radius: 8px;
+    border-collapse: collapse;
+}
+
+.suggestions{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: white;
+    z-index: 1,
+  }
+  .suggestionItem{
+    padding: 8px;
+    cursor: pointer,
+  }

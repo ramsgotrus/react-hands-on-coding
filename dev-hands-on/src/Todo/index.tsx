@@ -15,18 +15,21 @@ export const Todo: FC<TodoItemsProps> = ({ items }) => {
     );
   };
   return (
-    <ul>
+    <ul className="todo-list">
       {todoList.map((item) => (
-        <li className="todo-list">
+        <li className="todo-list-item">
           <input
             className="input-checkbox"
             type="checkbox"
             checked={item.completed}
             onChange={() => handleTodoComplete(item.id)}
           />
-          <span className={item.completed ? "todo-complete" : ""}>
+          <p
+            className={item.completed ? "todo-complete" : ""}
+            onClick={() => handleTodoComplete(item.id)}
+          >
             {item.text}
-          </span>
+          </p>
         </li>
       ))}
     </ul>
