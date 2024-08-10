@@ -1,6 +1,8 @@
 .todo-list{
     display: inline-block;
     flex-direction: column;
+    max-height: 100vh;
+    padding: 1rem;
 }
 
 .todo-list-item{

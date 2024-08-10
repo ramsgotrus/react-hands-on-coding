@@ -12,7 +12,7 @@ export const Tabs: FC<TabsProps> = ({ tabs, children }) => {
     setActiveChildren(index);
   };
   return (
-    <>
+    <main>
       <div className="tabs">
         {tabs.map((tab, index) => (
           <button
@@ -26,6 +26,6 @@ export const Tabs: FC<TabsProps> = ({ tabs, children }) => {
       </div>
 
       <div className="tab-content">{children[activeChildren]}</div>
-    </>
+    </main>
   );
 };

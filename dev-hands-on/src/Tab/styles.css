@@ -2,6 +2,7 @@
   display: flex;
   gap: 10px;
   padding-top: 10px;
+  flex-direction: column;
 }
 
 .tabs button{
@@ -17,7 +18,12 @@
   color: #ffff;
 }
 
+.tab-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
 .tab-content{
-  padding-bottom: 1rem;
-  margin-bottom: 40px;
+  width: 95%;
+  padding: 1rem;
 }

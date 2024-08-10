@@ -13,7 +13,11 @@ export const StarRating: FC<StarRatingProps> = ({ totalRating }) => {
     <div
       style={{
         border: "1px solid #5555",
-        width: "auto",
+        width: "12%",
+        borderRadius: 8,
+        background: "#555",
+        height: 70,
+        padding: "1rem",
       }}
     >
       {[...Array(totalRating)].map((_, index) => (
@@ -23,7 +27,7 @@ export const StarRating: FC<StarRatingProps> = ({ totalRating }) => {
           style={{
             color: index > currentIndex ? "gray" : "#ffc107",
             cursor: "pointer",
-            fontSize: "100px",
+            fontSize: "80px",
           }}
         >
           *
