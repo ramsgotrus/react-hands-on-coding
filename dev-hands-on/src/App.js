@@ -14,6 +14,9 @@ import Game from "./TicTacToe/index";
 import { Typeahead } from "./Typeahead/index";
 import { ProgressBar } from "./ProgressBar/index";
 import { RadioGroup } from "./RadioGroup/index";
+import { RandomColors } from "./RandomColors/index";
+import { Switch } from "./Switch/index";
+import { Tooltip } from "./Tooltip/Tooltip";
 
 function App() {
   const headers = Object.keys(USERS[0]);
@@ -26,7 +29,9 @@ function App() {
     "TicTacToe",
     "Typeahead",
     "Radio group",
-    "Tabs",
+    "RandomColors",
+    "Switch",
+    "Tooltip",
   ];
   const options = ["18-34", "35-49", "50+", "Mix all ages"];
   const genderOptions = ["Male", "Female", "None"];
@@ -51,6 +56,11 @@ function App() {
           <Game />
           <Typeahead data={USERS} />
           <RadioGroup options={options} genderOptions={genderOptions} />
+          <RandomColors />
+          <Switch />
+          <Tooltip tooltipText="This is a tooltip!">
+            <button>Hover over me</button>
+          </Tooltip>
         </Tabs>
       </article>
       <footer>Footer</footer>

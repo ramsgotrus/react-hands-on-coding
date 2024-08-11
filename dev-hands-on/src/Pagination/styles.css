@@ -22,7 +22,8 @@
 }
 .page-content{
     width: 100%;
-    height: 500px;
+    height: 50vh;
     background-color: #555F;
     align-content: center;
+    text-align: center;
 }
