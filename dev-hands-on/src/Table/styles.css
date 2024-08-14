@@ -16,7 +16,7 @@ td{
 }
 
 .selectedHeader{
-    background-color:  #5555;
+    /* background-color:  #5555; */
     height: 40px;
     cursor: pointer;
 }

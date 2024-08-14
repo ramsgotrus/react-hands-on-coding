@@ -24,6 +24,9 @@ const user = {
     street: "123 Main St",
     city: "Anytown",
     zipCode: "12345",
+    countr: {
+      name: "USA",
+    },
   },
 };
 
