@@ -1,53 +1,47 @@
-import React, { FC } from "react";
-import "./components/styles.css";
-import { ProgressBarContainer } from "./components/ProgressBarContainer";
-import { ProgressBarFill } from "./components/ProgressBarFill";
-import { ProgressBarLabel } from "./components/ProgressBarLabel";
+import React, { FC, useEffect, useState } from "react";
+import "./styles.css";
 
 interface ProgressBarProps {
-  color: string;
-  width: number;
-  height: number;
-  label: string;
-  determinate: boolean;
-  progress: number;
+  bgColor: string;
 }
 
-export const ProgressBar: FC<ProgressBarProps> = ({
-  color,
-  width,
-  height,
-  label,
-  determinate,
-  progress,
-}) => {
-  const [fillWidth, setFillWidth] = React.useState(0);
+export const ProgressBar: FC<ProgressBarProps> = ({ bgColor }) => {
+  const [completed, setCompleted] = useState<number>(0);
+  const [interval, setInterval] = useState(200);
+  let timer = null;
 
-  React.useEffect(() => {
-    if (determinate) {
-      setFillWidth((progress / 100) * width);
-    }
-  }, [progress, determinate, width]);
+  useEffect(() => {
+    timer = setTimeout(() => {
+      if (completed === 100) {
+        setInterval(null);
+      } else {
+        setCompleted((completed) => completed + 1);
+      }
+      return () => {
+        setInterval(null);
+        timer = null;
+      };
+    }, interval);
+  }, [completed]);
 
   return (
-    <ProgressBarContainer
-      style={{
-        width,
-        height,
-        backgroundColor: color,
-      }}
-    >
-      <ProgressBarFill
+    <div className="progressBar-container">
+      <div
         style={{
-          width: fillWidth,
-          backgroundColor: color,
+          maxWidth: `${completed}%`,
+          backgroundColor: "orange",
+          textAlign: "center",
+          borderRadius: "32px",
+          height: "40px",
+          alignItems: "center",
+          justifyContent: "center",
+          display: "flex",
+          color: "#FFFF",
+          fontWeight: "bold",
         }}
-      />
-      <ProgressBarLabel>
-        {label} {determinate ? `${progress}%` : ""}
-      </ProgressBarLabel>
-    </ProgressBarContainer>
+      >
+        <span>{completed} %</span>
+      </div>
+    </div>
   );
 };
-
-export default ProgressBar;

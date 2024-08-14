@@ -1,36 +1,27 @@
 import React, { FC, useState } from "react";
+import "./style.css";
 
 export const Switch: FC = () => {
-  const [isChecked, setIsChecked] = useState<boolean>(true);
-
-  const handleChange = () => {
-    setIsChecked((isChecked) => !isChecked);
+  const [isOn, setIsOn] = useState<boolean>(false);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsOn((isOn) => !isOn);
   };
   return (
-    <div
-      onClick={handleChange}
-      style={{
-        width: "60px",
-        height: "30px",
-        backgroundColor: isChecked ? "#4CAF50" : "#ccc",
-        borderRadius: "15px",
-        position: "relative",
-        cursor: "pointer",
-        transition: "background-color 0.10s",
-      }}
-    >
-      <div
-        style={{
-          width: "30px",
-          height: "30px",
-          backgroundColor: "#FFFFF",
-          borderRadius: "15px",
-          position: "absolute",
-          top: "0",
-          left: isChecked ? "30px" : "0",
-          transition: "left 0.3s",
-        }}
-      ></div>
+    <div className="switch-container">
+      <input
+        onChange={handleChange}
+        id="switch"
+        type="checkbox"
+        className="switch-checkbox"
+        checked={isOn}
+      />
+      <label
+        style={{ background: isOn ? "green" : "gray" }}
+        className="switch-label"
+        htmlFor={`switch`}
+      >
+        <span className="switch-button" />
+      </label>
     </div>
   );
 };

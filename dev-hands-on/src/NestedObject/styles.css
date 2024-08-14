@@ -1,0 +1,16 @@
+.formController{
+display: grid;
+grid-template-columns: 150px 300px;
+}
+.buttonSubmit{
+ grid-column-start: 2; 
+ margin-top: 10px;
+ width: 30%;
+ height: 40px;
+}
+
+.inputReadOnly{
+    display: inline-block;
+    background-color: lightgray;
+    height: 40px;
+}

@@ -17,6 +17,8 @@ import { RadioGroup } from "./RadioGroup/index";
 import { RandomColors } from "./RandomColors/index";
 import { Switch } from "./Switch/index";
 import { Tooltip } from "./Tooltip/Tooltip";
+import { Modal } from "./Modal/index";
+import { UserProfile } from "./NestedObject/index";
 
 function App() {
   const headers = Object.keys(USERS[0]);
@@ -32,9 +34,12 @@ function App() {
     "RandomColors",
     "Switch",
     "Tooltip",
+    "Modal",
+    "Nested Form",
   ];
   const options = ["18-34", "35-49", "50+", "Mix all ages"];
   const genderOptions = ["Male", "Female", "None"];
+
   return (
     <div className="tab-wrapper">
       <header>
@@ -61,6 +66,8 @@ function App() {
           <Tooltip tooltipText="This is a tooltip!">
             <button>Hover over me</button>
           </Tooltip>
+          <Modal />
+          <UserProfile />
         </Tabs>
       </article>
       <footer>Footer</footer>

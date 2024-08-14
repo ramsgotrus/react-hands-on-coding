@@ -1,0 +1,22 @@
+.container{
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-content{
+    z-index: 100px;
+    opacity: 0;
+}
+
+.container:hover .tooltip-content{
+    display: block;
+    position: "absolute";
+    z-index:  1000;
+    white-space: "nowrap";
+    bottom: "125%";
+    left: "50%";
+    transform: "translateX(-10%)";
+    margin-left: "-60px";
+    text-align: "center";
+    opacity:1
+} 
