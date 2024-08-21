@@ -25,7 +25,7 @@ export const Table: FC<TableProps> = ({ initialData, headers, footer }) => {
       const row = Object.values(rowItem);
       return row.some((item) => {
         if (typeof item === "string") {
-          return item.toLowerCase().includes(searchQuery.toLocaleLowerCase());
+          return item.toLowerCase().includes(searchQuery.toLowerCase());
         } else if (typeof item === "number") {
           return item.toString() === searchQuery;
         }
