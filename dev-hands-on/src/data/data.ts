@@ -47,3 +47,24 @@ export const TODOLIST = [
   { id: 10, text: "Todo 10", completed: false },
   { id: 11, text: "Todo 11", completed: false },
 ];
+
+const people = [
+  {
+    name: "Carly",
+    yearOfBirth: 1942,
+    yearOfDeath: 1970,
+    age: 13,
+  },
+  {
+    name: "Ray",
+    yearOfBirth: 1962,
+    yearOfDeath: 2011,
+    age: 10,
+  },
+  {
+    name: "Jane",
+    yearOfBirth: 1912,
+    yearOfDeath: 1941,
+    age: 20,
+  },
+];

@@ -48,3 +48,26 @@
 // }
 
 // console.log("Q3 - Running total of testArray3:", findMissingNumber(testArray3));
+
+//sort by last name helper function
+//const newEntry = {id: Math.random(),userFirstname:'Coder', userLastname:'Byte', userPhone:8885559999}
+// const sortedData = (items) =>{
+//     return items.sort((a,b) =>{
+//        const lastNameA = a.userLastname.toLowerCase()
+//        const lastNameB = b.userLastname.toLowerCase()
+//        return lastNameA.localeCompare(lastNameB)
+//      })
+//   }
+
+// //handler to add entry to phone book
+// const addEntryToPhoneBook =(newEntry) =>{
+//     setPhoneBookEntries(phoneBookEntries => [...phoneBookEntries,newEntry])
+//     setNewContact({...newContact,
+//     userFirstname:'Coder',
+//     userLastname:'Byte',
+//     userPhone:'8885559999'})
+//     }
+//  //handler to udpate the contact form
+//  const handleOnEntryChange =(e) =>{
+//      setNewContact({...newContact,[e.target.name]: e.target.value})
+//  }

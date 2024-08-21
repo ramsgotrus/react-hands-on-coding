@@ -19,24 +19,14 @@ import { Switch } from "./Switch/index";
 import { Tooltip } from "./Tooltip/Tooltip";
 import { Modal } from "./Modal/index";
 import { UserProfile } from "./NestedObject/index";
+import Accordion from "./Accordion/Accordion";
+import { Dropdown } from "./DropDown";
+import { PhoneBookEntry } from "./PhoneBookEntry/index";
 
 function App() {
-  const headers = Object.keys(USERS[0]);
-  const tabs = [
-    "Progress bar",
-    "StarRating",
-    "SalesReport",
-    "Pagination",
-    "Todo",
-    "TicTacToe",
-    "Typeahead",
-    "Radio group",
-    "RandomColors",
-    "Switch",
-    "Tooltip",
-    "Modal",
-    "Nested Form",
-  ];
+  const countries = ["India", "USA", "Mexico", "Italy"];
+  const states = ["Andhra Pradesh", "Telangana", "Bombay", "Kerla"];
+  const capitalCity = ["Hyderabad", "Delhi"];
   const options = ["18-34", "35-49", "50+", "Mix all ages"];
   const genderOptions = ["Male", "Female", "None"];
 
@@ -46,7 +36,7 @@ function App() {
         <h2>Interview coding exercises</h2>
       </header>
       <article>
-        <Tabs tabs={tabs}>
+        <Pagination totalPages={10}>
           <ProgressBar
             color="red"
             width={500}
@@ -56,7 +46,6 @@ function App() {
           />
           <StarRating totalRating={5} />
           <SalesReport users={USERS} transactions={TRANSACTIONS} />
-          <Pagination totalPages={10}>Tab 3</Pagination>
           <Todo items={TODOLIST} />
           <Game />
           <Typeahead data={USERS} />
@@ -68,9 +57,16 @@ function App() {
           </Tooltip>
           <Modal />
           <UserProfile />
-        </Tabs>
+          <Accordion />
+          <Dropdown items={countries} />
+          <PhoneBookEntry />
+          <Tabs tabs={["Test", "Test1"]}>
+            <div>Test1</div>
+            <div>Test2</div>
+          </Tabs>
+        </Pagination>
       </article>
-      <footer>Footer</footer>
+      {/* <footer>Footer</footer> */}
     </div>
   );
 }

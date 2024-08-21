@@ -60,7 +60,7 @@ export const Table: FC<TableProps> = ({ initialData, headers, footer }) => {
   };
 
   return (
-    <>
+    <div className="tableWrapper">
       <input
         type="search"
         placeholder="Search any key......."
@@ -100,6 +100,6 @@ export const Table: FC<TableProps> = ({ initialData, headers, footer }) => {
           </tfoot>
         )}
       </table>
-    </>
+    </div>
   );
 };

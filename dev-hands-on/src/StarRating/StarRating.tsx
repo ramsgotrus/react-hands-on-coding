@@ -15,7 +15,6 @@ export const StarRating: FC<StarRatingProps> = ({ totalRating }) => {
         border: "1px solid #5555",
         width: "12%",
         borderRadius: 8,
-        background: "#555",
         height: 70,
         padding: "1rem",
       }}

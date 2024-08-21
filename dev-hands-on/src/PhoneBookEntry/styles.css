@@ -1,0 +1,8 @@
+.formContainer{
+    display: grid;
+    grid-template-columns: 200px 300px;
+}
+
+.submitButton{
+    grid-column-start: 2;
+}

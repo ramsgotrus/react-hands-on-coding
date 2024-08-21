@@ -1,11 +1,12 @@
-import React, { FC, useState } from "react";
+import React, { FC, ReactNode, useState } from "react";
 import "./styles.css";
 
 interface PaginationProps {
   totalPages: number;
+  children: ReactNode[];
 }
 
-export const Pagination: FC<PaginationProps> = ({ totalPages }) => {
+export const Pagination: FC<PaginationProps> = ({ totalPages, children }) => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const handleOnPageChange = (index: number) => {
     setCurrentPage(index);
@@ -13,7 +14,7 @@ export const Pagination: FC<PaginationProps> = ({ totalPages }) => {
 
   return (
     <>
-      <div className="page-content">{currentPage}</div>
+      <div className="page-content">{children[currentPage]}</div>
       <div className="pagination">
         <button
           onClick={() => handleOnPageChange(currentPage - 1)}
@@ -22,7 +23,7 @@ export const Pagination: FC<PaginationProps> = ({ totalPages }) => {
           Previous
         </button>
 
-        {[...Array(totalPages)].map((_, index) => (
+        {[...Array(children.length)].map((_, index) => (
           <button
             onClick={() => handleOnPageChange(index)}
             key={index}
