@@ -1,47 +1,34 @@
 import React, { FC, useEffect, useState } from "react";
-import "./styles.css";
+import { ProgressBarContainer } from "./components/ProgressBarContainer";
 
-interface ProgressBarProps {
-  bgColor: string;
-}
+export const ProgressBar: FC = () => {
+  const [progress, setProgress] = useState(0);
 
-export const ProgressBar: FC<ProgressBarProps> = ({ bgColor }) => {
-  const [completed, setCompleted] = useState<number>(0);
-  const [interval, setInterval] = useState(200);
-  let timer = null;
-
+  const handleClick = () => {
+    setProgress((prev) => (prev < 100 ? prev + 10 : 0));
+  };
   useEffect(() => {
-    timer = setTimeout(() => {
-      if (completed === 100) {
-        setInterval(null);
-      } else {
-        setCompleted((completed) => completed + 1);
-      }
-      return () => {
-        setInterval(null);
-        timer = null;
-      };
-    }, interval);
-  }, [completed]);
-
+    setTimeout(() => {
+      setProgress((prev) => (prev < 100 ? prev + 10 : 0));
+    });
+  }, [progress]);
   return (
-    <div className="progressBar-container">
-      <div
-        style={{
-          maxWidth: `${completed}%`,
-          backgroundColor: "orange",
-          textAlign: "center",
-          borderRadius: "32px",
-          height: "40px",
-          alignItems: "center",
-          justifyContent: "center",
-          display: "flex",
-          color: "#FFFF",
-          fontWeight: "bold",
-        }}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "10px",
+        alignItems: "center",
+      }}
+    >
+      <h1>React Progress bar</h1>
+      <ProgressBarContainer value={progress} max={100} label="Loading..." />
+      <button
+        style={{ height: "40px", width: "100px", borderRadius: "8px" }}
+        onClick={handleClick}
       >
-        <span>{completed} %</span>
-      </div>
+        Increase Progress
+      </button>
     </div>
   );
 };

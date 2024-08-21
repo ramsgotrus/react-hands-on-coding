@@ -13,7 +13,6 @@ input{
 }
 
 .suggestions{
-    position: absolute;
     top: 80%;
     left: 0;
     right: 0;
