@@ -1,6 +1,5 @@
 import logo from "./logo.svg";
 import "./App.css";
-import ImageCarousel from "./Slider/Slider";
 import { StarRating } from "./StarRating/StarRating";
 import { USERS, CANDIDATES, TODOLIST } from "./data/data";
 import { TRANSACTIONS } from "./data/transactions";
@@ -22,6 +21,8 @@ import { UserProfile } from "./NestedObject/index";
 import Accordion from "./Accordion/Accordion";
 import { Dropdown } from "./DropDown";
 import { PhoneBookEntry } from "./PhoneBookEntry/index";
+import { HOC } from "./HOC/index";
+import { ImageCarousel } from "./Carousel/index";
 
 function App() {
   const countries = ["India", "USA", "Mexico", "Italy"];
@@ -37,33 +38,62 @@ function App() {
       </header>
       <article>
         <Pagination totalPages={10}>
-          <ProgressBar
-            color="red"
-            width={500}
-            height={100}
-            determinate={false}
-            progress={100}
-          />
-          <StarRating totalRating={5} />
-          <SalesReport users={USERS} transactions={TRANSACTIONS} />
-          <Todo items={TODOLIST} />
-          <Game />
-          <Typeahead data={USERS} />
-          <RadioGroup options={options} genderOptions={genderOptions} />
-          <RandomColors />
-          <Switch />
-          <Tooltip tooltipText="This is a tooltip!">
-            <button>Hover over me</button>
-          </Tooltip>
-          <Modal />
-          <UserProfile />
-          <Accordion />
-          <Dropdown items={countries} />
-          <PhoneBookEntry />
-          <Tabs tabs={["Test", "Test1"]}>
-            <div>Test1</div>
-            <div>Test2</div>
-          </Tabs>
+          <HOC title="ProgressBar">
+            <ProgressBar />
+          </HOC>
+          <HOC title="StarRating">
+            <StarRating totalRating={5} />
+          </HOC>
+          <HOC title="SalesReport">
+            <SalesReport users={USERS} transactions={TRANSACTIONS} />
+          </HOC>
+          <HOC title="Todo">
+            <Todo items={TODOLIST} />
+          </HOC>
+          <HOC title="Game">
+            <Game />
+          </HOC>
+          <HOC title="Typeahead">
+            <Typeahead data={USERS} />
+          </HOC>
+          <HOC title="RadioGroup">
+            <RadioGroup options={options} genderOptions={genderOptions} />
+          </HOC>
+          <HOC title="RandomColors">
+            <RandomColors />
+          </HOC>
+          <HOC title="Switch">
+            <Switch />
+          </HOC>
+          <HOC title="Tooltip">
+            <Tooltip tooltipText="This is a tooltip!">
+              <button>Hover over me</button>
+            </Tooltip>
+          </HOC>
+          <HOC title="Modal">
+            <Modal />
+          </HOC>
+          <HOC title="UserProfile">
+            <UserProfile />
+          </HOC>
+          <HOC title="Accordion">
+            <Accordion />
+          </HOC>
+          <HOC title="Dropdown">
+            <Dropdown items={countries} />
+          </HOC>
+          <HOC title="PhoneBookEntry">
+            <PhoneBookEntry />
+          </HOC>
+          <HOC title="Tabs">
+            <Tabs tabs={["Test", "Test1"]}>
+              <div>Test1</div>
+              <div>Test2</div>
+            </Tabs>
+          </HOC>
+          <HOC title="ImageCarousel">
+            <ImageCarousel />
+          </HOC>
         </Pagination>
       </article>
       {/* <footer>Footer</footer> */}

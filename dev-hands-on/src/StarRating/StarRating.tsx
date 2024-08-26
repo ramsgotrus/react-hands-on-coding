@@ -17,6 +17,7 @@ export const StarRating: FC<StarRatingProps> = ({ totalRating }) => {
         borderRadius: 8,
         height: 70,
         padding: "1rem",
+        margin: "auto",
       }}
     >
       {[...Array(totalRating)].map((_, index) => (
