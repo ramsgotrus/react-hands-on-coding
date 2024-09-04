@@ -1,18 +1,45 @@
 import React, { FC, useState } from "react";
-import "./styles.css";
-import { ModalContainer } from "./ModalContainer";
 
 export const Modal: FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
-    <div>
-      <h1>Modal Example</h1>
-      <button onClick={openModal}>Open modal</button>
-      <ModalContainer isModelOpen={isModalOpen} onClose={closeModal}>
-        <h2>Modal Tile</h2>
-      </ModalContainer>
+    <div style={{ position: "fixed", display: "inline-block" }}>
+      <button onClick={() => setIsOpen((isOpen) => !isOpen)}>Open Modal</button>
+      {isOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: "#5555",
+          }}
+        >
+          <div
+            style={{
+              width: "400px",
+              height: "300px",
+              background: "#ffff",
+              position: "relative",
+              padding: "20px",
+              alignItems: "center",
+              color: "#ffff",
+              justifyItems: "center",
+              display: "flex",
+              top: "30%",
+              left: "30%",
+            }}
+          >
+            <button
+              style={{ position: "absolute", top: "10%", right: "10%" }}
+              onClick={() => setIsOpen((isOpen) => !isOpen)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

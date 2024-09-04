@@ -14,7 +14,6 @@ import { Typeahead } from "./Typeahead/index";
 import { ProgressBar } from "./ProgressBar/index";
 import { RadioGroup } from "./RadioGroup/index";
 import { RandomColors } from "./RandomColors/index";
-import { Switch } from "./Switch/index";
 import { Tooltip } from "./Tooltip/Tooltip";
 import { Modal } from "./Modal/index";
 import { UserProfile } from "./NestedObject/index";
@@ -23,6 +22,9 @@ import { Dropdown } from "./DropDown";
 import { PhoneBookEntry } from "./PhoneBookEntry/index";
 import { HOC } from "./HOC/index";
 import { ImageCarousel } from "./Carousel/index";
+import { InfiniteScrollComponent } from "./InfiniteScroll/index";
+import { APICall } from "./API/index";
+import { SwitchControl } from "./SwitchControl/index";
 
 function App() {
   const countries = ["India", "USA", "Mexico", "Italy"];
@@ -38,6 +40,15 @@ function App() {
       </header>
       <article>
         <Pagination totalPages={10}>
+          <HOC title="Switch Control">
+            <SwitchControl />
+          </HOC>
+          <HOC title="Infinite Scroll">
+            <InfiniteScrollComponent />
+          </HOC>
+          <HOC title="API Call">
+            <APICall />
+          </HOC>
           <HOC title="ProgressBar">
             <ProgressBar />
           </HOC>
@@ -61,9 +72,6 @@ function App() {
           </HOC>
           <HOC title="RandomColors">
             <RandomColors />
-          </HOC>
-          <HOC title="Switch">
-            <Switch />
           </HOC>
           <HOC title="Tooltip">
             <Tooltip tooltipText="This is a tooltip!">
